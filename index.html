@@ -3,293 +3,318 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paróquia Nossa Senhora da Glória</title>
+    <title>Campanha Apoio Patriota - Vaquinha Oficial</title>
     <style>
-        :root {
-            --primary: #0f2027;       
-            --secondary: #203a43;     
-            --accent: #d4af37;        
-            --bg-light: #f8f9fa;      
-            --text-dark: #2d3748;     
-            --radius: 12px;           
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            color: var(--text-dark);
-            background-color: #ffffff;
+            background-color: #f4f6f9;
+            color: #333;
             line-height: 1.6;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Bandeira do Brasil como marca d'água sutil no fundo */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.02; /* Deixei em 0.02 para ficar bem clara e elegante */
+            z-index: -1;
+        }
+
+        /* Topo com as cores nacionais */
+        .header-bar {
+            background: linear-gradient(90deg, #009c3b 0%, #009c3b 45%, #ffdf00 45%, #ffdf00 55%, #002776 55%, #002776 100%);
+            height: 8px;
+            width: 100%;
         }
 
         header {
-            background: rgba(15, 32, 39, 0.95);
-            backdrop-filter: blur(10px);
-            color: white;
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .logo h1 { font-size: 1.3rem; font-weight: 700; }
-        .logo p { font-size: 0.75rem; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; }
-
-        nav a {
-            color: #edf2f7;
-            text-decoration: none;
-            margin-left: 25px;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        nav a:hover { color: var(--accent); }
-
-        .hero {
-            background: linear-gradient(rgba(15, 32, 39, 0.7), rgba(15, 32, 39, 0.85)), url('https://i.pinimg.com/1200x/ea/06/ee/ea06ee12da2bff8c2c164ba7a57a95a8.jpg') no-repeat center center/cover;
-            height: 85vh;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            background-color: rgba(255, 255, 255, 0.95);
             text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            backdrop-filter: blur(5px);
+        }
+
+        header h1 {
+            color: #002776;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            color: #555;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
             padding: 0 20px;
         }
 
-        .hero h2 { font-size: 3.2rem; font-weight: 800; margin-bottom: 15px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
-        .hero p { font-size: 1.25rem; max-width: 650px; margin-bottom: 30px; color: #e2e8f0; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
-
-        .btn {
-            background-color: var(--accent);
-            color: var(--primary);
-            padding: 14px 32px;
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 30px;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-            transition: var(--transition);
-            display: inline-block;
-            cursor: pointer;
-            border: none;
-            font-size: 1rem;
+        /* Seção do Progresso da Vaquinha e Biografia */
+        .card {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
         }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
-        }
-
-        .container { max-width: 1140px; margin: 80px auto; padding: 0 25px; }
-        h2.section-title { text-align: center; color: var(--primary); font-size: 2.2rem; font-weight: 700; margin-bottom: 45px; }
-        h2.section-title::after { content: ''; display: block; width: 40px; height: 4px; background-color: var(--accent); margin: 12px auto 0; border-radius: 2px; }
-
-        .oracao-section { background-color: var(--bg-light); padding: 60px 20px; text-align: center; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; }
-        .oracao-box { max-width: 700px; margin: 0 auto; background: white; padding: 40px; border-radius: var(--radius); box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
-        
-        .info-section { background-color: var(--bg-light); padding: 80px 0; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
-        .info-box h3 { color: var(--primary); font-size: 1.5rem; margin-bottom: 15px; }
-
-        .contato-info { text-align: center; max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: var(--radius); box-shadow: 0 4px 15px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; }
-        .contato-info p { margin: 15px 0; font-size: 1.1rem; }
-
-        footer { background-color: var(--primary); color: #a0aec0; text-align: center; padding: 40px 20px; font-size: 0.9rem; }
-
-        /* ========================================================
-           ESTILO DA JANELA FLUTUANTE (MODAL DAS IMAGENS DE MISSA)
-           ======================================================== */
-        .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 2000; 
-            left: 0;
-            top: 0;
-            width: 100%; 
-            height: 100%; 
-            overflow: auto; 
-            background-color: rgba(0, 0, 0, 0.85); 
-            backdrop-filter: blur(5px);
-            padding-top: 40px;
-        }
-
-        .modal-content {
-            background-color: var(--bg-light);
-            margin: auto;
-            padding: 20px;
-            border-radius: var(--radius);
-            width: 95%;
-            max-width: 750px;
-            text-align: center;
-            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
-            position: relative;
-        }
-
-        .close-btn {
-            position: absolute;
-            right: 20px;
-            top: 15px;
-            color: #aaa;
-            font-size: 28px;
+        .goal-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
             font-weight: bold;
-            cursor: pointer;
-            transition: color 0.2s;
-            z-index: 10;
         }
 
-        .close-btn:hover { color: var(--primary); }
+        .raised { color: #009c3b; }
+        .goal { color: #777; }
 
-        .modal-content h3 {
-            margin-bottom: 5px;
-            color: var(--primary);
-            margin-top: 10px;
-        }
-
-        .modal-content p {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-        }
-
-        .folheto-img {
+        .progress-bar-bg {
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            height: 20px;
             width: 100%;
-            height: auto;
-            margin-bottom: 20px;
+            overflow: hidden;
+            margin-bottom: 25px;
+        }
+
+        .progress-bar-fill {
+            background-color: #009c3b;
+            height: 100%;
+            width: 7%; 
+            transition: width 0.5s ease-in-out;
+        }
+
+        /* Área de Pagamento PIX */
+        .pix-section {
+            background-color: #f0f7f1;
+            border: 2px dashed #009c3b;
             border-radius: 6px;
-            border: 1px solid #ddd;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            padding: 25px;
+            text-align: center;
+            margin-top: 20px;
         }
 
-        .btn-fechar-modal {
-            background-color: var(--primary);
-            color: white;
-            padding: 10px 25px;
-            border: none;
-            border-radius: 20px;
+        .pix-title {
+            color: #009c3b;
+            font-size: 1.3rem;
             font-weight: bold;
-            cursor: pointer;
-            margin-top: 10px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
-        
-        .btn-fechar-modal:hover { background-color: var(--secondary); }
 
-        @media (max-width: 768px) {
-            header { flex-direction: column; text-align: center; padding: 20px; }
-            nav { margin-top: 20px; }
-            nav a { margin: 0 12px; font-size: 0.9rem; }
-            .hero h2 { font-size: 2.2rem; }
+        .pix-key-box {
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            padding: 12px;
+            font-family: monospace;
+            font-size: 1.1rem;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            word-break: break-all;
+            color: #222;
+        }
+
+        .btn-copy {
+            background-color: #002776;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background 0.2s;
+        }
+
+        .btn-copy:hover {
+            background-color: #001a50;
+        }
+
+        /* Texto de justificativa e biografia */
+        .purpose-text {
+            font-size: 1.05rem;
+            color: #444;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        /* Estilos da Seção de História */
+        .history-section h2 {
+            color: #002776;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ffdf00;
+            padding-bottom: 5px;
+        }
+
+        .history-section h3 {
+            color: #009c3b;
+            font-size: 1.3rem;
+            margin: 20px 0 10px 0;
+        }
+
+        .history-section p {
+            font-size: 1rem;
+            color: #444;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        .history-section ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            color: #444;
+        }
+
+        .history-section ul li {
+            margin-bottom: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #555;
+            font-size: 0.9rem;
+            background-color: rgba(255, 255, 255, 0.8);
+            margin-top: auto;
         }
     </style>
 </head>
 <body>
 
-    <!-- CABEÇALHO -->
+    <div class="header-bar"></div>
+    
     <header>
-        <div class="logo">
-            <h1>Nossa Senhora da Glória</h1>
-            <p>Paróquia Católica</p>
-        </div>
-        <nav>
-            <a href="#inicio">Início</a>
-            <a href="#" onclick="abrirModal(event)">Horários de Missas</a>
-            <a href="#secretaria">Secretaria</a>
-            <a href="#contato">Contato</a>
-        </nav>
+        <h1>Apoio ao Presidente Bolsonaro</h1>
+        <p>Campanha de mobilização voluntária e espontânea de apoio e solidariedade da base patriota.</p>
     </header>
 
-    <!-- BANNER PRINCIPAL -->
-    <section class="hero" id="inicio">
-        <h2>Paróquia Nossa Senhora da Glória</h2>
-        <p>"Maria, elevada à glória do céu, acompanha com amor materno a Igreja peregrina na terra."</p>
-        <button class="btn" onclick="abrirModal(event)">Horários de Missa</button>
-    </section>
+    <div class="container">
+        
+        <!-- Bloco do PIX / Vaquinha -->
+        <div class="card">
+            <p class="purpose-text">
+                Campanha nacional voluntária em apoio ao projeto de consolidar a base patriótica para 2026. Participe ativamente e contribua de forma espontânea com valores de R$ 1 a R$ 100.
+            </p>
 
-    <!-- SEÇÃO DA ORAÇÃO -->
-    <section class="oracao-section">
-        <div class="oracao-box">
-            <h3>Oração a Nossa Senhora da Glória</h3>
-            <p style="font-style: italic; margin-bottom: 15px;">"Ó Virgem Santíssima, Mãe de Deus e nossa Mãe, que fostes elevada à glória dos céus em corpo e alma, olhai por nós, vossos filhos, que recorremos a Vós."</p>
-            <p style="font-style: italic;">"Concedei-nos a força na fé, a firmeza na esperança e a constância na caridade. Guiai nossa comunidade paroquial no caminho do Gospel. Amém."</p>
-        </div>
-    </section>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 25px 0;">
 
-    <!-- SECRETARIA E INFORMAÇÕES -->
-    <section class="info-section" id="secretaria">
-        <div class="container">
-            <div class="info-grid">
-                <div class="info-box">
-                    <h3>Atendimento Paroquial</h3>
-                    <p>Agende sacramentos, intenções de missa ou converse com a secretaria paroquial.</p>
-                    <p><strong>Segunda a Sexta:</strong> 08h às 12h e 14h às 18h</p>
-                    <p><strong>Sábado:</strong> 08h às 12h</p>
+            <!-- Indicadores de arrecadação -->
+            <div class="goal-info">
+                <div>Arrecadado: <span class="raised">R$ 70.00</span></div>
+                <div>Meta: <span class="goal">R$ 1.000</span></div>
+            </div>
+
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill"></div>
+            </div>
+
+            <!-- Área PIX -->
+            <div class="pix-section">
+                <div class="pix-title">
+                    Contribuir via PIX (Copia e Cola)
                 </div>
-                <div class="info-box">
-                    <h3>Aviso à Comunidade</h3>
-                    <p>A partir do dia 20 de julho até dia 20 de agosto o Padre não estará atendendo nas dependências da Paróquia por motivo de cirurgia[cite: 1]. Os Diáconos Leonir e Ivanor estarão atendendo no plantão das exéquias[cite: 1].</p>
-                </div>
+                <p style="font-size: 0.9rem; color: #555; margin-bottom: 10px;">Copie a chave abaixo e utilize o aplicativo do seu banco para transferir.</p>
+                
+                <div class="pix-key-box" id="pixKey">vaquinhabolsonaro@tutamail.com</div>
+                
+                <button class="btn-copy" onclick="copyPix()">Copiar Chave PIX</button>
             </div>
         </div>
-    </section>
 
-    <!-- CONTATO E LOCALIZAÇÃO -->
-    <section class="container" id="contato">
-        <h2 class="section-title">Contato & Localização</h2>
-        <div class="contato-info">
-            <p>📍 <strong>Endereço:</strong> Rua Santa Catarina, 157 - Centro - Doutor Pedrinho / SC[cite: 1]</p>
-            <p>📞 <strong>Telefone:</strong> (47) 3388-0701[cite: 1]</p>
-            <p>📧 <strong>E-mail:</strong> pargloria@hotmail.com[cite: 1]</p>
+        <!-- Nova Seção: História do Bolsonaro -->
+        <div class="card history-section">
+            <h2>Trajetória e História</h2>
+            
+            <p>Jair Bolsonaro nasceu em 21 de março de 1955, no interior de São Paulo (há registros que apontam Campinas e outros que indicam Glicério como local de nascimento). Cresceu em Eldorado (SP) e, ainda jovem, decidiu seguir carreira militar.</p>
+
+            <h3>Carreira militar</h3>
+            <p>Na década de 1970, entrou para a Academia Militar das Agulhas Negras e formou-se oficial do Exército Brasileiro em 1977. Serviu como paraquedista e alcançou o posto de capitão. Em 1986, ganhou notoriedade após publicar um artigo criticando os baixos salários dos militares, o que gerou punições e controvérsias dentro do Exército.</p>
+
+            <h3>Entrada na política</h3>
+            <p>Em 1988, foi eleito vereador do Rio de Janeiro. Dois anos depois, tornou-se deputado federal, cargo que ocupou por sete mandatos consecutivos, de 1991 a 2018. Durante esse período, ficou conhecido por defender pautas como:</p>
+            <ul>
+                <li>Fortalecimento das Forças Armadas;</li>
+                <li>Endurecimento das leis penais;</li>
+                <li>Direito à posse e ao porte de armas;</li>
+                <li>Posições conservadoras em temas sociais.</li>
+            </ul>
+
+            <h3>Campanha presidencial de 2018</h3>
+            <p>Em 2018, concorreu à Presidência pelo Partido Social Liberal. Durante a campanha, sofreu um atentado a faca em um comício em Juiz de Fora, Minas Gerais, e precisou passar por cirurgias. O episódio teve grande impacto na eleição. Bolsonaro venceu o segundo turno com cerca de 55% dos votos válidos e tornou-se o 38º presidente do Brasil.</p>
+
+            <h3>Governo (2019–2022)</h3>
+            <p>Seu governo foi marcado por forte polarização política. Entre os principais acontecimentos estão:</p>
+            <ul>
+                <li>Aprovação da reforma da Previdência;</li>
+                <li>Expansão da agenda de flexibilização do acesso a armas;</li>
+                <li>Privatizações e concessões em alguns setores;</li>
+                <li>Enfrentamento da pandemia de COVID-19, período em que suas decisões e declarações geraram intenso debate e críticas de parte da comunidade científica e da oposição;</li>
+                <li>Conflitos frequentes com o Supremo Tribunal Federal, o Congresso e a imprensa.</li>
+            </ul>
+
+            <h3>Eleição de 2022</h3>
+            <p>Bolsonaro disputou a reeleição contra Luiz Inácio Lula da Silva e foi derrotado no segundo turno por uma diferença pequena de votos. Foi o primeiro presidente da chamada Nova República a tentar a reeleição e não conseguir um segundo mandato.</p>
+
+            <h3>Após a Presidência</h3>
+            <p>Depois de deixar o cargo, Bolsonaro passou a responder a diversos processos judiciais relacionados a sua atuação política e aos acontecimentos após as eleições de 2022. Em 2025, o Supremo Tribunal Federal o condenou por liderar uma tentativa de golpe de Estado. Bolsonaro nega as acusações e afirma ser perseguido politicamente. Segundo decisões judiciais, ele cumpre pena e permanece inelegível, enquanto seus recursos seguem sendo discutidos.</p>
+
+            <h3>Resumo da trajetória</h3>
+            <ul>
+                <li><strong>1955:</strong> Nascimento em São Paulo.</li>
+                <li><strong>1977:</strong> Forma-se oficial do Exército.</li>
+                <li><strong>1988:</strong> Eleito vereador.</li>
+                <li><strong>1991–2018:</strong> Deputado federal por sete mandatos.</li>
+                <li><strong>2018:</strong> Eleito presidente do Brasil.</li>
+                <li><strong>2019–2022:</strong> Exerce a Presidência.</li>
+                <li><strong>2022:</strong> Perde a reeleição para Lula.</li>
+                <li><strong>Após 2022:</strong> Enfrenta processos judiciais e permanece uma das figuras mais influentes da direita brasileira.</li>
+            </ul>
         </div>
-    </section>
 
-    <!-- RODAPÉ -->
-    <footer>
-        <p>&copy; 2026 Paróquia Nossa Senhora da Glória. Todos os direitos reservados.</p>
-        <p>Diocese de Blumenau[cite: 1]</p>
-    </footer>
-
-    <!-- JANELA FLUTUANTE (MODAL COM AS IMAGENS DO SEU PROJETO) -->
-    <div id="missasModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="fecharModal()">&times;</span>
-            <h3>Programação de Missas</h3>
-            <p>Confira abaixo o folheto de horários oficial</p>
-            
-            <!-- Imagem 1 -->
-            <img src="imagem 1.png" alt="Programação Julho Página 1" class="folheto-img">
-            
-            <!-- Imagem 2 -->
-            <img src="imagen 2.png" alt="Programação Julho Página 2" class="folheto-img">
-            
-            <br>
-            <button class="btn-fechar-modal" onclick="fecharModal()">Fechar</button>
-        </div>
     </div>
 
-    <!-- SCRIPT DE EXECUÇÃO -->
+    <footer>
+        <p>Campanha organizada por apoiadores independentes. Contribuições voluntárias.</p>
+        <p style="margin-top: 5px;">&copy; 2026 Brasil Unido - Todos os direitos reservados.</p>
+    </footer>
+
     <script>
-        function abrirModal(event) {
-            event.preventDefault(); 
-            document.getElementById("missasModal").style.display = "block";
-            document.body.style.overflow = "hidden"; 
-        }
-
-        function fecharModal() {
-            document.getElementById("missasModal").style.display = "none";
-            document.body.style.overflow = "auto"; 
-        }
-
-        window.onclick = function(event) {
-            var modal = document.getElementById("missasModal");
-            if (event.target == modal) {
-                fecharModal();
-            }
+        function copyPix() {
+            const pixText = document.getElementById("pixKey").innerText;
+            navigator.clipboard.writeText(pixText).then(() => {
+                alert("Chave PIX copiada com sucesso!");
+            }).catch(err => {
+                alert("Erro ao copiar a chave. Por favor, selecione e copie manualmente.");
+            });
         }
     </script>
 
