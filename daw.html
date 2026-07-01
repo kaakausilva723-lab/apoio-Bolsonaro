@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campanha Apoio Patriota - Vaquinha Oficial</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Topo com as cores nacionais */
+        .header-bar {
+            background: linear-gradient(90deg, #009c3b 0%, #009c3b 45%, #ffdf00 45%, #ffdf00 55%, #002776 55%, #002776 100%);
+            height: 8px;
+            width: 100%;
+        }
+
+        header {
+            background-color: #ffffff;
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        header h1 {
+            color: #002776;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            color: #555;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Seção do Progresso da Vaquinha */
+        .card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+
+        .goal-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .raised { color: #009c3b; }
+        .goal { color: #777; }
+
+        .progress-bar-bg {
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            height: 20px;
+            width: 100%;
+            overflow: hidden;
+            margin-bottom: 25px;
+        }
+
+        .progress-bar-fill {
+            background-color: #009c3b;
+            height: 100%;
+            width: 72%; /* Altere a porcentagem aqui conforme o andamento */
+            transition: width 0.5s ease-in-out;
+        }
+
+        /* Área de Pagamento PIX */
+        .pix-section {
+            background-color: #f0f7f1;
+            border: 2px dashed #009c3b;
+            border-radius: 6px;
+            padding: 25px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .pix-title {
+            color: #009c3b;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .pix-key-box {
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            padding: 12px;
+            font-family: monospace;
+            font-size: 1.1rem;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            word-break: break-all;
+            color: #222;
+        }
+
+        .btn-copy {
+            background-color: #002776;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background 0.2s;
+        }
+
+        .btn-copy:hover {
+            background-color: #001a50;
+        }
+
+        /* Texto de justificativa */
+        .purpose-text {
+            font-size: 1.05rem;
+            color: #444;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-bar"></div>
+    
+    <header>
+        <h1>Apoio ao Presidente Bolsonaro</h1>
+        <p>Campanha de mobilização voluntária e espontânea de apoio e solidariedade da base patriota.</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="card">
+            <p class="purpose-text">
+                vaquinha  Bolsonaro 2026 Melhor presidente Doe de R$1 a R$100.
+            </p>
+
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 25px 0;">
+
+            <!-- Indicadores de arrecadação -->
+            <div class="goal-info">
+                <div>Arrecadado: <span class="raised">R$ 720.000</span></div>
+                <div>Meta: <span class="goal">R$ 1.000.000</span></div>
+            </div>
+
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill"></div>
+            </div>
+
+            <!-- Área PIX -->
+            <div class="pix-section">
+                <div class="pix-title">
+                    Contribuir via PIX (Copia e Cola)
+                </div>
+                <p style="font-size: 0.9rem; color: #555; margin-bottom: 10px;">Copie a chave abaixo e utilize o aplicativo do seu banco para transferir.</p>
+                
+                <!-- Substitua pelo seu Pix real ou chave aleatória -->
+                <div class="pix-key-box" id="pixKey">suachavepixaqui@dominio.com</div>
+                
+                <button class="btn-copy" onclick="copyPix()">Copiar Chave PIX</button>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Campanha organizada por apoiadores independentes. Contribuições voluntárias.</p>
+        <p style="margin-top: 5px;">&copy; 2026 Brasil Unido - Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function copyPix() {
+            const pixText = document.getElementById("pixKey").innerText;
+            navigator.clipboard.writeText(pixText).then(() => {
+                alert("Chave PIX copiada com sucesso!");
+            }).catch(err => {
+                alert("Erro ao copiar a chave. Por favor, selecione e copie manualmente.");
+            });
+        }
+    </script>
+
+</body>
+</html>
