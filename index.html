@@ -3,320 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campanha Apoio Patriota - Vaquinha Oficial</title>
+    <title>ValoMarket - Venda de Contas Valorant</title>
+    <!-- Tailwind CSS para estilização rápida e moderna -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Ícones FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: #f4f6f9;
-            color: #333;
-            line-height: 1.6;
-            position: relative;
-            min-height: 100vh;
-        }
-
-        /* Bandeira do Brasil como marca d'água sutil no fundo */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            opacity: 0.02; /* Deixei em 0.02 para ficar bem clara e elegante */
-            z-index: -1;
-        }
-
-        /* Topo com as cores nacionais */
-        .header-bar {
-            background: linear-gradient(90deg, #009c3b 0%, #009c3b 45%, #ffdf00 45%, #ffdf00 55%, #002776 55%, #002776 100%);
-            height: 8px;
-            width: 100%;
-        }
-
-        header {
-            background-color: rgba(255, 255, 255, 0.95);
-            text-align: center;
-            padding: 40px 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            backdrop-filter: blur(5px);
-        }
-
-        header h1 {
-            color: #002776;
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        header p {
-            color: #555;
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        /* Seção do Progresso da Vaquinha e Biografia */
-        .card {
-            background: rgba(255, 255, 255, 0.98);
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            margin-bottom: 30px;
-        }
-
-        .goal-info {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-
-        .raised { color: #009c3b; }
-        .goal { color: #777; }
-
-        .progress-bar-bg {
-            background-color: #e0e0e0;
-            border-radius: 10px;
-            height: 20px;
-            width: 100%;
-            overflow: hidden;
-            margin-bottom: 25px;
-        }
-
-        .progress-bar-fill {
-            background-color: #009c3b;
-            height: 100%;
-            width: 7%; 
-            transition: width 0.5s ease-in-out;
-        }
-
-        /* Área de Pagamento PIX */
-        .pix-section {
-            background-color: #f0f7f1;
-            border: 2px dashed #009c3b;
-            border-radius: 6px;
-            padding: 25px;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .pix-title {
-            color: #009c3b;
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .pix-key-box {
-            background-color: #ffffff;
-            border: 1px solid #ccc;
-            padding: 12px;
-            font-family: monospace;
-            font-size: 1.1rem;
-            border-radius: 4px;
-            margin-bottom: 15px;
-            word-break: break-all;
-            color: #222;
-        }
-
-        .btn-copy {
-            background-color: #002776;
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 4px;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: background 0.2s;
-        }
-
-        .btn-copy:hover {
-            background-color: #001a50;
-        }
-
-        /* Texto de justificativa e biografia */
-        .purpose-text {
-            font-size: 1.05rem;
-            color: #444;
-            text-align: justify;
-            margin-bottom: 20px;
-        }
-
-        /* Estilos da Seção de História */
-        .history-section h2 {
-            color: #002776;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #ffdf00;
-            padding-bottom: 5px;
-        }
-
-        .history-section h3 {
-            color: #009c3b;
-            font-size: 1.3rem;
-            margin: 20px 0 10px 0;
-        }
-
-        .history-section p {
-            font-size: 1rem;
-            color: #444;
-            text-align: justify;
-            margin-bottom: 15px;
-        }
-
-        .history-section ul {
-            margin-bottom: 15px;
-            padding-left: 20px;
-            color: #444;
-        }
-
-        .history-section ul li {
-            margin-bottom: 5px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: #555;
-            font-size: 0.9rem;
-            background-color: rgba(255, 255, 255, 0.8);
-            margin-top: auto;
-        }
+        /* Cor customizada do Valorant */
+        .bg-valorant { background-color: #ff4655; }
+        .text-valorant { color: #ff4655; }
+        .border-valorant { border-color: #ff4655; }
+        .hover-valorant:hover { background-color: #e53e4b; }
     </style>
 </head>
-<body>
+<body class="bg-gray-950 text-gray-100 font-sans">
 
-    <div class="header-bar"></div>
-    
-    <header>
-        <h1>Apoio ao Presidente Bolsonaro</h1>
-        <p>Campanha de mobilização voluntária e espontânea de apoio e solidariedade da base patriota.</p>
+    <!-- Navbar -->
+    <nav class="bg-gray-900 border-b border-gray-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl font-black tracking-wider text-valorant">VALO<span class="text-white">MARKET</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8 font-medium">
+                    <a href="#home" class="hover:text-valorant transition">Início</a>
+                    <a href="#contas" class="hover:text-valorant transition">Contas Disponíveis</a>
+                    <a href="#seguranca" class="hover:text-valorant transition">Segurança</a>
+                    <a href="#faq" class="hover:text-valorant transition">FAQ</a>
+                </div>
+                <div>
+                    <a href="#contas" class="bg-valorant hover-valorant text-white px-5 py-2 rounded-md font-bold transition transform hover:scale-105 inline-block">
+                        Ver Catálogo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="relative overflow-hidden bg-gray-900 py-24 px-4 text-center border-b border-gray-800">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,70,85,0.1),transparent_70%)]"></div>
+        <div class="relative max-w-3xl mx-auto">
+            <span class="bg-gray-800 border border-gray-700 text-valorant px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">Mercado Seguro</span>
+            <h1 class="text-4xl sm:text-6xl font-black tracking-tight my-6">
+                As Melhores Contas de <span class="text-valorant">Valorant</span> Estão Aqui
+            </h1>
+            <p class="text-gray-400 text-lg sm:text-xl mb-8">
+                Contas Full Acesso, com skins exclusivas, facas raras e elos garantidos. Entrega imediata e 100% segura.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contas" class="bg-valorant hover-valorant px-8 py-3 rounded-md font-bold text-lg transition">Comprar Conta</a>
+                <a href="https://wa.me/seu-numero" target="_blank" class="bg-gray-800 hover:bg-gray-700 border border-gray-700 px-8 py-3 rounded-md font-bold text-lg transition flex items-center justify-center gap-2">
+                    <i class="fab fa-whatsapp text-green-400"></i> Falar no WhatsApp
+                </a>
+            </div>
+        </div>
     </header>
 
-    <div class="container">
-        
-        <!-- Bloco do PIX / Vaquinha -->
-        <div class="card">
-            <p class="purpose-text">
-                Campanha nacional voluntária em apoio ao projeto de consolidar a base patriótica para 2026. Participe ativamente e contribua de forma espontânea com valores de R$ 1 a R$ 100.
-            </p>
+    <!-- Seção de Vantagens -->
+    <section id="seguranca" class="py-16 max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+            <div class="text-valorant text-3xl mb-4"><i class="fas fa-bolt"></i></div>
+            <h3 class="text-xl font-bold mb-2">Entrega Rápida</h3>
+            <p class="text-gray-400 text-sm">Dados da conta enviados imediatamente após a confirmação do pagamento.</p>
+        </div>
+        <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+            <div class="text-valorant text-3xl mb-4"><i class="fas fa-shield-alt"></i></div>
+            <h3 class="text-xl font-bold mb-2">Garantia e Segurança</h3>
+            <p class="text-gray-400 text-sm">Contas verificadas, com e-mail alterável e suporte pós-venda garantido.</p>
+        </div>
+        <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+            <div class="text-valorant text-3xl mb-4"><i class="fas fa-tags"></i></div>
+            <h3 class="text-xl font-bold mb-2">Preço Justo</h3>
+            <p class="text-gray-400 text-sm">A melhor avaliação do mercado pelo seu dinheiro e investimento em skins.</p>
+        </div>
+    </section>
 
-            <hr style="border: 0; border-top: 1px solid #eee; margin: 25px 0;">
-
-            <!-- Indicadores de arrecadação -->
-            <div class="goal-info">
-                <div>Arrecadado: <span class="raised">R$ 70.00</span></div>
-                <div>Meta: <span class="goal">R$ 1.000</span></div>
-            </div>
-
-            <div class="progress-bar-bg">
-                <div class="progress-bar-fill"></div>
-            </div>
-
-            <!-- Área PIX -->
-            <div class="pix-section">
-                <div class="pix-title">
-                    Contribuir via PIX (Copia e Cola)
-                </div>
-                <p style="font-size: 0.9rem; color: #555; margin-bottom: 10px;">Copie a chave abaixo e utilize o aplicativo do seu banco para transferir.</p>
-                
-                <div class="pix-key-box" id="pixKey">vaquinhabolsonaro@tutamail.com</div>
-                
-                <button class="btn-copy" onclick="copyPix()">Copiar Chave PIX</button>
-            </div>
+    <!-- Vitrine de Contas -->
+    <main id="contas" class="py-16 max-w-7xl mx-auto px-4">
+        <div class="mb-12 text-center md:text-left">
+            <h2 class="text-3xl font-black tracking-tight"><span class="text-valorant">//</span> CONTAS DISPONÍVEIS</h2>
+            <p class="text-gray-400">Escolha a conta perfeita para o seu estilo de jogo</p>
         </div>
 
-        <!-- Nova Seção: História do Bolsonaro -->
-        <div class="card history-section">
-            <h2>Trajetória e História</h2>
+        <!-- Grid de Contas -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
-            <p>Jair Bolsonaro nasceu em 21 de março de 1955, no interior de São Paulo (há registros que apontam Campinas e outros que indicam Glicério como local de nascimento). Cresceu em Eldorado (SP) e, ainda jovem, decidiu seguir carreira militar.</p>
+            <!-- Exemplo de Card 1 -->
+            <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 flex flex-col hover:border-valorant transition duration-300">
+                <div class="bg-gray-800 p-4 flex justify-between items-center border-b border-gray-800">
+                    <span class="font-bold text-sm tracking-wide text-gray-300 uppercase">Conta #001</span>
+                    <span class="bg-amber-500/10 text-amber-500 border border-amber-500/20 px-2 py-0.5 rounded text-xs font-bold uppercase">Imortal I</span>
+                </div>
+                <div class="p-6 flex-grow">
+                    <h3 class="text-xl font-bold mb-4">Vandal Kuronami + Faca RGX</h3>
+                    <ul class="space-y-2 text-sm text-gray-400 mb-6">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> <strong>Skins Principais:</strong> Kuronami, RGX, Reaver</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> <strong>Level:</strong> 142</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> <strong>VP Restante:</strong> 1.200 VP</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> <strong>Acesso:</strong> Full Acesso (Dono Único)</li>
+                    </ul>
+                </div>
+                <div class="p-6 bg-gray-950 border-t border-gray-800 flex items-center justify-between">
+                    <div>
+                        <span class="text-xs text-gray-500 block">Preço único</span>
+                        <span class="text-2xl font-black text-white">R$ 350,00</span>
+                    </div>
+                    <!-- Link direto para o seu WhatsApp com mensagem pronta -->
+                    <a href="https://wa.me/seu-numero?text=Tenho%20interesse%20na%20Conta%20001" target="_blank" class="bg-valorant hover-valorant px-4 py-2 rounded font-bold text-sm transition">
+                        Comprar
+                    </a>
+                </div>
+            </div>
 
-            <h3>Carreira militar</h3>
-            <p>Na década de 1970, entrou para a Academia Militar das Agulhas Negras e formou-se oficial do Exército Brasileiro em 1977. Serviu como paraquedista e alcançou o posto de capitão. Em 1986, ganhou notoriedade após publicar um artigo criticando os baixos salários dos militares, o que gerou punições e controvérsias dentro do Exército.</p>
+            <!-- Exemplo de Card 2 -->
+            <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 flex flex-col hover:border-valorant transition duration-300">
+                <div class="bg-gray-800 p-4 flex justify-between items-center border-b border-gray-800">
+                    <span class="font-bold text-sm tracking-wide text-gray-300 uppercase">Conta #002</span>
+                    <span class="bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-2 py-0.5 rounded text-xs font-bold uppercase">Diamante III</span>
+                </div>
+                <div class="p-6 flex-grow">
+                    <h3 class="text-xl font-bold mb-4">Conta OG - Leque Champions</h3>
+                    <ul class="space-y-2 text-sm text-gray-400 mb-6">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> <strong>Skins Principais:</strong> Leque Champions 2022, Vandal Prime</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> <strong>Level:</strong> 210</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> <strong>VP Restante:</strong> 450 VP</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> <strong>Acesso:</strong> E-mail Alterável</li>
+                    </ul>
+                </div>
+                <div class="p-6 bg-gray-950 border-t border-gray-800 flex items-center justify-between">
+                    <div>
+                        <span class="text-xs text-gray-500 block">Preço único</span>
+                        <span class="text-2xl font-black text-white">R$ 520,00</span>
+                    </div>
+                    <a href="https://wa.me/seu-numero?text=Tenho%20interesse%20na%20Conta%20002" target="_blank" class="bg-valorant hover-valorant px-4 py-2 rounded font-bold text-sm transition">
+                        Comprar
+                    </a>
+                </div>
+            </div>
 
-            <h3>Entrada na política</h3>
-            <p>Em 1988, foi eleito vereador do Rio de Janeiro. Dois anos depois, tornou-se deputado federal, cargo que ocupou por sete mandatos consecutivos, de 1991 a 2018. Durante esse período, ficou conhecido por defender pautas como:</p>
-            <ul>
-                <li>Fortalecimento das Forças Armadas;</li>
-                <li>Endurecimento das leis penais;</li>
-                <li>Direito à posse e ao porte de armas;</li>
-                <li>Posições conservadoras em temas sociais.</li>
-            </ul>
+            <!-- Exemplo de Card 3 -->
+            <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 flex flex-col hover:border-valorant transition duration-300">
+                <div class="bg-gray-800 p-4 flex justify-between items-center border-b border-gray-800">
+                    <span class="font-bold text-sm tracking-wide text-gray-300 uppercase">Conta #003</span>
+                    <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded text-xs font-bold uppercase">Platina I</span>
+                </div>
+                <div class="p-6 flex-grow">
+                    <h3 class="text-xl font-bold mb-4">Pacote Econômico Skins</h3>
+                    <ul class="space-y-2 text-sm text-gray-400 mb-6">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> <strong>Skins Principais:</strong> Phantom Recon, Faca Xenohunter</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> <strong>Level:</strong> 65</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> <strong>VP Restante:</strong> 100 VP</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> <strong>Acesso:</strong> Full Acesso</li>
+                    </ul>
+                </div>
+                <div class="p-6 bg-gray-950 border-t border-gray-800 flex items-center justify-between">
+                    <div>
+                        <span class="text-xs text-gray-500 block">Preço único</span>
+                        <span class="text-2xl font-black text-white">R$ 130,00</span>
+                    </div>
+                    <a href="https://wa.me/seu-numero?text=Tenho%20interesse%20na%20Conta%20003" target="_blank" class="bg-valorant hover-valorant px-4 py-2 rounded font-bold text-sm transition">
+                        Comprar
+                    </a>
+                </div>
+            </div>
 
-            <h3>Campanha presidencial de 2018</h3>
-            <p>Em 2018, concorreu à Presidência pelo Partido Social Liberal. Durante a campanha, sofreu um atentado a faca em um comício em Juiz de Fora, Minas Gerais, e precisou passar por cirurgias. O episódio teve grande impacto na eleição. Bolsonaro venceu o segundo turno com cerca de 55% dos votos válidos e tornou-se o 38º presidente do Brasil.</p>
-
-            <h3>Governo (2019–2022)</h3>
-            <p>Seu governo foi marcado por forte polarização política. Entre os principais acontecimentos estão:</p>
-            <ul>
-                <li>Aprovação da reforma da Previdência;</li>
-                <li>Expansão da agenda de flexibilização do acesso a armas;</li>
-                <li>Privatizações e concessões em alguns setores;</li>
-                <li>Enfrentamento da pandemia de COVID-19, período em que suas decisões e declarações geraram intenso debate e críticas de parte da comunidade científica e da oposição;</li>
-                <li>Conflitos frequentes com o Supremo Tribunal Federal, o Congresso e a imprensa.</li>
-            </ul>
-
-            <h3>Eleição de 2022</h3>
-            <p>Bolsonaro disputou a reeleição contra Luiz Inácio Lula da Silva e foi derrotado no segundo turno por uma diferença pequena de votos. Foi o primeiro presidente da chamada Nova República a tentar a reeleição e não conseguir um segundo mandato.</p>
-
-            <h3>Após a Presidência</h3>
-            <p>Depois de deixar o cargo, Bolsonaro passou a responder a diversos processos judiciais relacionados a sua atuação política e aos acontecimentos após as eleições de 2022. Em 2025, o Supremo Tribunal Federal o condenou por liderar uma tentativa de golpe de Estado. Bolsonaro nega as acusações e afirma ser perseguido politicamente. Segundo decisões judiciais, ele cumpre pena e permanece inelegível, enquanto seus recursos seguem sendo discutidos.</p>
-
-            <h3>Resumo da trajetória</h3>
-            <ul>
-                <li><strong>1955:</strong> Nascimento em São Paulo.</li>
-                <li><strong>1977:</strong> Forma-se oficial do Exército.</li>
-                <li><strong>1988:</strong> Eleito vereador.</li>
-                <li><strong>1991–2018:</strong> Deputado federal por sete mandatos.</li>
-                <li><strong>2018:</strong> Eleito presidente do Brasil.</li>
-                <li><strong>2019–2022:</strong> Exerce a Presidência.</li>
-                <li><strong>2022:</strong> Perde a reeleição para Lula.</li>
-                <li><strong>Após 2026:</strong> Enfrenta processos judiciais e permanece uma das figuras mais influentes da direita brasileira.</li>
-            </ul>
         </div>
+    </main>
 
-    </div>
+    <!-- FAQ (Dúvidas Frequentes) -->
+    <section id="faq" class="py-16 bg-gray-900 border-t border-gray-800">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-black text-center mb-12">DÚVIDAS FREQUENTES</h2>
+            <div class="space-y-6">
+                <div class="bg-gray-950 p-6 rounded-lg border border-gray-800">
+                    <h4 class="font-bold text-lg mb-2">O que significa "Full Acesso"?</h4>
+                    <p class="text-gray-400 text-sm">Significa que você receberá os dados atuais da conta e poderá alterar o e-mail cadastrado e a senha para os seus dados pessoais, tornando-se o único dono.</p>
+                </div>
+                <div class="bg-gray-950 p-6 rounded-lg border border-gray-800">
+                    <h4 class="font-bold text-lg mb-2">Quais as formas de pagamento?</h4>
+                    <p class="text-gray-400 text-sm">Aceitamos Pix para liberação imediata. Para outras formas de pagamento, entre em contato direto pelo nosso WhatsApp.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <footer>
-        <p>Campanha organizada por apoiadores independentes. Contribuições VOLUNTARIAS (o dinhheiro irá 60% para os bolsonaristas).</p>
-        <p style="margin-top: 5px;">&copy; 2026 Brasil Unido - Todos os direitos reservados.</p>
+    <!-- Rodapé -->
+    <footer class="bg-gray-950 py-8 text-center text-gray-500 text-xs border-t border-gray-900">
+        <p>&copy; 2026 VALOMARKET. Todos os direitos reservados.</p>
+        <p class="mt-2 max-w-md mx-auto">Este site não possui nenhum vínculo com a Riot Games Inc. Todos os detalhes de marcas registradas pertencem aos seus respectivos proprietários.</p>
     </footer>
-
-    <script>
-        function copyPix() {
-            const pixText = document.getElementById("pixKey").innerText;
-            navigator.clipboard.writeText(pixText).then(() => {
-                alert("Chave PIX copiada com sucesso!");
-            }).catch(err => {
-                alert("Erro ao copiar a chave. Por favor, selecione e copie manualmente.");
-            });
-        }
-    </script>
 
 </body>
 </html>
